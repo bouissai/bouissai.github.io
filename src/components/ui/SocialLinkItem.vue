@@ -8,12 +8,15 @@ import LinkedinIcon from '@/assets/linkedin.svg'
 
 const props = defineProps<{ social: SocialLink }>()
 
-const iconCompMap: Record<string, Component> = {
+const iconCompMap = {
   github: GitHubIcon,
   linkedin: LinkedinIcon
-}
+} as const
 
-const IconComp = computed<Component | null>(() => iconCompMap[props.social.icon] ?? null)
+const IconComp = computed<Component | null>(() => {
+  const comp = iconCompMap[props.social.icon as keyof typeof iconCompMap]
+  return comp && typeof comp !== 'string' ? comp : null
+})
 </script>
 
 <template>
