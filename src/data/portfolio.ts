@@ -83,7 +83,7 @@ export const projects: Project[] = [
     tags: ['Next.js', 'Prisma', 'PostgreSQL', 'Git CI/CD', 'Docker', 'VPS Ionos'],
     href: 'https://bmarket.fr',
     repo: 'https://github.com/bouissai/b-market',
-    videoPath: 'https://youtu.be/Gq5UYJvB9bs',
+    videoPath: 'https://www.youtube.com/embed/Gq5UYJvB9bs?si=_fzImUamorRds3Zp',
     featured: true
   },
   {
@@ -93,12 +93,12 @@ export const projects: Project[] = [
     description:
       'Application web de gestion de courses et de bons de livraison, développée dans le cadre du master MIAGE. Permet la gestion des chauffeurs, clients, paiements et export Excel.',
     tags: ['Spring Boot', 'Angular', 'PostgreSQL'],
-    href: 'https://youtu.be/TurXDLKvCBU',
-    videoPath: 'https://youtu.be/TurXDLKvCBU'
+    href: 'https://www.youtube.com/embed/TurXDLKvCBU?si=PwoPmuFOhLRpZ4u2',
+    videoPath: 'https://www.youtube.com/embed/TurXDLKvCBU?si=PwoPmuFOhLRpZ4u2'
 
   },
   {
-    id: 'weather-app',
+    id: 'monkeyQuest',
     projectImg: 'grosmed.jpg',
     title: 'MonkeyQuest',
     description:

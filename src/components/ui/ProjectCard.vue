@@ -81,7 +81,7 @@ const cardClasses = computed(() => {
   }
 
   return [
-    'group relative flex h-full flex-col overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-6 md:p-8',
+    'group relative flex flex-col overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-6 md:p-8',
     'backdrop-blur-sm transition hover:-translate-y-1 hover:border-white/30 hover:bg-white/10'
   ]
 })
@@ -113,10 +113,19 @@ const descriptionWrapperClasses = computed(() =>
     ? 'mt-3 text-sm text-white/80 transition-all duration-300'
     : 'mt-3 text-sm text-white/60 transition-all duration-300'
 )
+
+const footerClasses = computed(() => {
+  const base = ['flex flex-wrap items-center gap-4 text-sm']
+  base.push(isFeatured.value ? 'mt-6 pt-4' : 'mt-6')
+  return base.join(' ')
+})
+
 </script>
 
 <template>
-  <article :class="cardClasses">
+  <article
+    :class="cardClasses"
+  >
     <div
       v-if="isFeatured"
       class="absolute inset-0 -z-10 bg-gradient-to-br from-sky-500/40 via-transparent to-purple-500/40"
@@ -169,7 +178,7 @@ const descriptionWrapperClasses = computed(() =>
       allowfullscreen
     />
 
-    <footer class="mt-auto pt-8 flex flex-wrap items-center gap-4 text-sm">
+    <footer :class="footerClasses">
       <ul class="flex flex-wrap gap-2">
         <li
           v-for="tag in project.tags"

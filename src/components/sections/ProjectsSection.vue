@@ -31,11 +31,11 @@ const orderedProjects = computed(() =>
         Chaque mission démarre par des ateliers d’alignement, se poursuit par des prototypes haute fidélité et se termine par un accompagnement serré des équipes dev.
       </p>
     </div>
-    <div class="mt-12 grid gap-8 lg:auto-rows-[1fr] lg:grid-cols-3">
+    <div class="mt-12 grid gap-8 items-start lg:grid-cols-2">
       <div
         v-for="project in orderedProjects"
         :key="project.id"
-        :class="project.featured ? 'lg:col-span-2 lg:row-span-2' : ''"
+        :class="project.featured ? 'lg:col-span-3' : ''"
       >
         <ProjectCard :project="project" :featured="project.featured === true" />
       </div>
