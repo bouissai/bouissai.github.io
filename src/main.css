@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-slate-950 text-white antialiased;
+    font-family: 'Inter', 'Sora', 'Helvetica Neue', Arial, sans-serif;
+  }
+
+  ::selection {
+    @apply bg-sky-500/40 text-white;
+  }
+}
+
