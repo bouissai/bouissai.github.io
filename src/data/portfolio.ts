@@ -51,6 +51,10 @@ export const heroContent = {
   title: 'Je connecte la technologie, la donnée et la stratégie achat.',
   description:
     'Acheteur IT/OT chez La Poste Groupe et ancien ingénieur full stack, je combine expertise technique et sens stratégique pour piloter les achats logiciels, services IT et projets digitaux. Entre code, négociation et innovation, j’aime bâtir des ponts entre la tech et le business.',
+  photoUrl:
+    '/photo-pro.jpg',
+  photoAlt: 'Portrait professionnel d’Ilyass Bouissa',
+  photoCaption: '“Construire des passerelles durables entre tech et achats.”',
   ctaPrimary: {
     label: 'Voir mes projets',
     href: '#projects'
