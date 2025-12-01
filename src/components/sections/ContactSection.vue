@@ -31,7 +31,7 @@ const phoneHref = computed(() =>
           </p>
 
           <div class="m-6">
-            <BaseButton label="Programmer un appel" href="https://cal.com" target="_blank" />
+            <BaseButton label="Programmer un appel" href="https://cal.com/bouissai" target="_blank" />
           </div>
 
           <div class="mt-12 flex flex-wrap justify-center gap-3">

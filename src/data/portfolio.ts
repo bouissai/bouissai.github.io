@@ -65,18 +65,18 @@ export const heroContent = {
   },
   highlights: [
     {
-      value: '4+ ans',
+      value: '+ 4 ans',
       label: 'Tech & achats',
       description: 'Capgemini, Rakuten & La Poste Groupe'
     },
     {
       value: '2 domaines',
-      label: 'IT & OT',
-      description: 'Logiciels, data & opérations industrielles'
+      label: 'IT & Achats',
+      description: 'Contractualisation, Sourcings et Innovation'
     },
     {
-      value: 'Grenoble',
-      label: 'Basé en',
+      value: 'Lyon',
+      label: 'Basé à',
       description: 'Disponible en hybride / remote'
     }
   ]
