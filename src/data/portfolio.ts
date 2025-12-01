@@ -62,7 +62,24 @@ export const heroContent = {
   ctaSecondary: {
     label: 'Télécharger le CV',
     href: '/public/docs/CV_Ilyass_achat.pdf'
-  }
+  },
+  highlights: [
+    {
+      value: '4+ ans',
+      label: 'Tech & achats',
+      description: 'Capgemini, Rakuten & La Poste Groupe'
+    },
+    {
+      value: '2 domaines',
+      label: 'IT & OT',
+      description: 'Logiciels, data & opérations industrielles'
+    },
+    {
+      value: 'Grenoble',
+      label: 'Basé en',
+      description: 'Disponible en hybride / remote'
+    }
+  ]
 }
 
 export const aboutContent = {

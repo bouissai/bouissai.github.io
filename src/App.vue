@@ -7,10 +7,11 @@ import SiteFooter from '@/components/sections/SiteFooter.vue'
 import SiteHeader from '@/components/sections/SiteHeader.vue'
 import SkillsSection from '@/components/sections/SkillsSection.vue'
 import AboutSection from '@/components/sections/AboutSection.vue'
+import MobileQuickActions from '@/components/ui/MobileQuickActions.vue'
 </script>
 
 <template>
-  <div class="relative min-h-screen bg-slate-950 text-white before:absolute before:inset-0 before:-z-10 before:bg-[radial-gradient(circle_at_top,_rgba(56,189,248,0.15),_transparent_60%)]">
+  <div class="relative min-h-screen bg-slate-950 text-white before:absolute before:inset-0 before:-z-10 before:bg-[radial-gradient(circle_at_top,rgba(56,189,248,0.15),transparent_60%)]">
     <div class="pointer-events-none fixed inset-0 -z-10 opacity-60">
       <div class="absolute left-20 top-20 h-64 w-64 rounded-full bg-purple-500/20 blur-3xl" />
       <div class="absolute right-32 top-40 h-80 w-80 rounded-full bg-sky-500/20 blur-3xl" />
@@ -28,5 +29,6 @@ import AboutSection from '@/components/sections/AboutSection.vue'
       </main>
       <SiteFooter />
     </div>
+    <MobileQuickActions />
   </div>
 </template>

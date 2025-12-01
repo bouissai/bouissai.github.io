@@ -1,20 +1,32 @@
 <script setup lang="ts">
+import { computed } from 'vue'
+
 const props = withDefaults(
   defineProps<{
     label: string
     href?: string
     variant?: 'primary' | 'ghost'
     target?: '_blank' | '_self'
+    block?: boolean
   }>(),
   {
     variant: 'primary',
     href: undefined,
-    target: '_self'
+    target: '_self',
+    block: false
   }
 )
 
 const baseClasses =
   'inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2'
+
+const contentClasses = computed(() =>
+  [baseClasses, props.block ? 'w-full sm:w-auto' : ''].filter(Boolean).join(' ')
+)
+
+const rootClasses = computed(() =>
+  ['group', props.block ? 'w-full sm:w-auto' : 'inline-block'].filter(Boolean).join(' ')
+)
 
 const variants = {
   primary:
@@ -29,9 +41,9 @@ const variants = {
     :is="props.href ? 'a' : 'button'"
     :href="props.href"
     :target="props.target"
-    class="group"
+    :class="rootClasses"
   >
-    <span :class="[baseClasses, variants[props.variant]]">
+    <span :class="[contentClasses, variants[props.variant]]">
       <span>{{ props.label }}</span>
       <svg
         v-if="props.variant === 'primary'"
