@@ -8,7 +8,7 @@ import { heroContent, socials } from '@/data/portfolio'
   <section
     id="home"
     aria-labelledby="home-title"
-    class="relative isolate overflow-hidden rounded-[2.5rem] border border-white/10 bg-linear-to-br from-slate-900 via-slate-900/90 to-slate-900/30 shadow-2xl shadow-blue-900/20 md:px-12 md:py-7"
+    class="relative isolate overflow-hidden rounded-[2.5rem] border border-white/10 bg-linear-to-br from-slate-900 via-slate-900/90 to-slate-900/30 shadow-2xl shadow-blue-900/20 px-12 py-7 md:px-12 md:py-7"
   >
     <div class="absolute -left-40 top-10 h-72 w-72 rounded-full bg-purple-500/20 blur-3xl" />
     <div class="absolute -right-40 bottom-0 h-96 w-96 rounded-full bg-sky-500/20 blur-3xl" />
