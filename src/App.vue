@@ -17,7 +17,7 @@ import MobileQuickActions from '@/components/ui/MobileQuickActions.vue'
       <div class="absolute right-32 top-40 h-80 w-80 rounded-full bg-sky-500/20 blur-3xl" />
       <div class="absolute bottom-10 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-blue-500/10 blur-3xl" />
     </div>
-    <div class="mx-auto flex min-h-screen flex-col gap-16 px-6 pb-16 pt-6 md:px-10">
+    <div class="mx-auto flex min-h-screen flex-col gap-8 px-6 md:px-10">
       <SiteHeader />
       <main class="flex flex-col gap-16 md:gap-20">
         <HeroSection />

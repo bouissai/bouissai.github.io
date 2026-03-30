@@ -15,7 +15,7 @@ import { heroContent, socials } from '@/data/portfolio'
     <div class="relative mx-auto max-w-6xl">
       <div class="flex flex-col gap-10 text-left md:gap-12 lg:flex-row lg:items-center lg:justify-between">
         <div class="max-w-3xl md:max-w-2xl lg:max-w-3xl">
-          <p class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-sky-200/80 backdrop-blur">
+          <p class="hidden items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-sky-200/80 backdrop-blur sm:inline-flex">
             {{ heroContent.badge }}
           </p>
           <h1 id="home-title" class="mt-6 text-3xl font-semibold text-white sm:text-4xl md:mt-8 md:text-5xl lg:text-6xl">
@@ -64,16 +64,19 @@ import { heroContent, socials } from '@/data/portfolio'
             />
           </div>
         </div>
-        <figure class="order-first w-full max-w-xs self-center sm:max-w-sm lg:order-last lg:max-w-sm">
-          <div class="relative rounded-[2.5rem] border border-white/10 bg-white/5 p-3 shadow-xl shadow-slate-900/40">
-            <div class="relative overflow-hidden rounded-4xl">
+        <figure class="order-first w-full self-center sm:max-w-sm lg:order-last lg:max-w-sm">
+          <p class="mb-3 flex w-full items-center justify-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-center text-xs font-semibold uppercase tracking-[0.3em] text-sky-200/80 backdrop-blur sm:hidden">
+            {{ heroContent.badge }}
+          </p>
+          <div class="relative rounded-full border border-white/10 bg-white/5 p-2 shadow-xl shadow-slate-900/40 sm:rounded-[2.5rem] sm:p-3">
+            <div class="relative overflow-hidden rounded-full sm:rounded-4xl">
               <img
                 :src="heroContent.photoUrl"
                 :alt="heroContent.photoAlt"
-                class="h-full w-full object-center grayscale transition duration-500 hover:scale-105 hover:grayscale-0"
+                class="aspect-square h-full w-full object-cover object-center grayscale transition duration-500 hover:scale-105 hover:grayscale-0 sm:aspect-auto"
                 loading="lazy"
               />
-              <div class="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-linear-to-t from-slate-900/80 to-transparent" />
+              <div class="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-linear-to-t from-slate-900/80 to-transparent sm:h-32" />
             </div>
           </div>
           <figcaption class="mt-4 text-center text-sm font-medium text-white/80">
