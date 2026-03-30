@@ -40,21 +40,21 @@ export type SkillGroup = {
 
 export const navLinks: NavLink[] = [
   { id: 'about', label: 'À propos' },
-  { id: 'projects', label: 'Projets' },
-  { id: 'experience', label: 'Expérience' },
+  { id: 'projects', label: 'Projets techniques' },
+  { id: 'experience', label: 'Parcours' },
   { id: 'skills', label: 'Compétences' },
   { id: 'contact', label: 'Contact' }
 ]
 
 export const heroContent = {
   badge: 'Full Stack Developer & IT/OT Buyer ',
-  title: 'Je connecte la technologie, la donnée et la stratégie achat.',
+  title: 'Entre achat et technique',
   description:
-    'Acheteur IT/OT chez La Poste Groupe et ancien ingénieur full stack, je combine expertise technique et sens stratégique pour piloter les achats logiciels, services IT et projets digitaux. Entre code, négociation et innovation, j’aime bâtir des ponts entre la tech et le business.',
+    'Acheteur IT/OT chez La Poste Groupe et ancien ingénieur full stack, je combine expertise technique et stratégie économique pour piloter les achats logiciels, services IT et projets digitaux. Entre architecture, négociation et innovation, j’aime bâtir des ponts entre la tech et le business.',
   photoUrl:
-    '/photo-pro.jpg',
+    '/photo-pro.crop.jpg',
   photoAlt: 'Portrait professionnel d’Ilyass Bouissa',
-  photoCaption: '“Construire des passerelles durables entre tech et achats.”',
+  photoCaption: '“Comprendre la technique pour mieux acheter”',
   ctaPrimary: {
     label: 'Voir mes projets',
     href: '#projects'
@@ -65,28 +65,28 @@ export const heroContent = {
   },
   highlights: [
     {
-      value: '+ 4 ans',
+      value: '+ 3 ans',
       label: 'Tech & achats',
       description: 'Capgemini, Rakuten & La Poste Groupe'
     },
     {
       value: '2 domaines',
       label: 'IT & Achats',
-      description: 'Contractualisation, Sourcings et Innovation'
+      description: 'Developpement, Sourcings & Contractualisation'
     },
     {
       value: 'Lyon',
       label: 'Basé à',
-      description: 'Disponible en hybride / remote'
+      description: 'Ouvert à toute la France'
     }
   ]
 }
 
 export const aboutContent = {
-  title: 'Profil hybride à la croisée des achats et de la tech',
+  title: 'Profil spécialisé',
   paragraphs: [
-    'Je suis actuellement acheteur IT/OT en alternance au sein de La Poste Groupe, où je gère les achats logiciels et prestations informatiques pour la branche Industrie, Technologie & Logistique. Mon rôle combine négociation, pilotage contractuel et contribution aux projets de digitalisation.',
-    'Avant de rejoindre le monde des achats, j’ai travaillé comme ingénieur full stack chez Capgemini Engineering et Rakuten Advertising, où j’ai conçu des solutions avec Spring Boot, Angular, Python et PostgreSQL. Cette double casquette technique et business me permet aujourd’hui de mieux comprendre les enjeux des directions IT et de challenger les fournisseurs avec pertinence.'
+    'Actuellement acheteur IT/OT en alternance à La Poste Groupe, je pilote des achats logiciels et de prestations informatiques pour la branche Industrie, Technologie & Logistique : appels d’offres, analyse des offres, négociation et contractualisation.',
+    'Avant cela, j’ai travaillé comme développeur chez Capgemini Engineering et Rakuten, sur des projets en Spring Boot, Angular, Python et PostgreSQL. Cette expérience me permet de comprendre les solutions techniques, d’échanger plus efficacement avec les équipes IT et d’évaluer les offres fournisseurs de manière concrète. Je continue de coder régulièrement sur des projets personnels et je reste en veille sur les nouveaux outils et évolutions technologiques, ce qui me permet de garder un regard actuel et opérationnel sur les solutions du marché.'
   ],
   highlights: [
     { label: 'Expérience IT/OT Achats', value: 'La Poste Groupe', images: ['/logo/laposte.jpg'] },
@@ -137,11 +137,12 @@ export const experiences: Experience[] = [
     company: 'La Poste Groupe – ITL (Industrie, Technologie & Logistique)',
     companyImg: "/logo/laposte.jpg",
     period: 'Sept. 2025 — Aujourd’hui',
-    description:
-      'Participation aux achats logiciels et prestations IT au sein du pôle ITL, avec une approche axée sur l’innovation, la gouvernance contractuelle et la performance fournisseur.',
+    description: 'Participation aux achats logiciels et prestations informatiques au sein du pôle ITL, avec un focus sur les appels d’offres, la contractualisation et le suivi fournisseur.',
     achievements: [
-      'Pilotage des processus RFI/RFP : rédaction de cahiers des charges, analyse des offres, négociation fournisseurs.',
-      'Suivi des contrats : conformité GDPR, SLA, risques et gouvernance.',
+      'Pilotage d’un appel d’offre SoftPOS pour équiper des facteurs en solution de paiement mobile : rédaction du cahier des charges, définition des critères (sécurité, conformité PCI-DSS), construction de la grille d’analyse technico-économique et comparaison des offres fournisseurs.',
+      'Participation à des appels d’offres portant sur des solutions IoT (Bluetooth Low Energy), des équipements informatiques éducatifs, des prestations intellectuelles ainsi que des solutions logicielles d’hypervision IoT, d’audit et d’état des lieux numériques',
+      'Veille technologique et sourcing fournisseurs lors des salons SIDO (IoT) & RetailTech',
+      'Négociation et contractualisation',
       'Appui technique grâce à un background full stack : challenge des coûts cachés et des faisabilités techniques.'
     ]
   },
@@ -220,7 +221,7 @@ export const socials: SocialLink[] = [
 ]
 
 export const contactContent = {
-  title: 'Besoin d’un profil hybride tech & business pour vos projets IT ?',
+  title: 'Discutons de vos projets IT',
   email: 'bouissailyass@gmail.com',
   phone: '+33 6 95 50 90 33',
   location: 'Lyon, France',
