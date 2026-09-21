@@ -1,63 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-
-const props = withDefaults(
-  defineProps<{
-    label: string
-    href?: string
-    variant?: 'primary' | 'ghost'
-    target?: '_blank' | '_self'
-    block?: boolean
-  }>(),
-  {
-    variant: 'primary',
-    href: undefined,
-    target: '_self',
-    block: false
-  }
-)
-
-const baseClasses =
-  'inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2'
-
-const contentClasses = computed(() =>
-  [baseClasses, props.block ? 'w-full sm:w-auto' : ''].filter(Boolean).join(' ')
-)
-
-const rootClasses = computed(() =>
-  ['group', props.block ? 'w-full sm:w-auto' : 'inline-block'].filter(Boolean).join(' ')
-)
-
-const variants = {
-  primary:
-    'bg-gradient-to-r from-blue-500 via-purple-500 to-sky-400 text-white shadow-lg shadow-blue-500/20 hover:opacity-90 focus-visible:outline-blue-500',
-  ghost:
-    'border border-white/20 bg-white/0 text-white hover:bg-white/10 focus-visible:outline-white'
-} as const
+const props = withDefaults(defineProps<{ label: string; href?: string; variant?: 'primary' | 'secondary' | 'text' | 'ghost'; target?: '_blank' | '_self'; block?: boolean }>(), { href: undefined, variant: 'primary', target: '_self', block: false })
+const classes = computed(() => { const base = 'inline-flex min-h-11 items-center justify-center gap-2 px-5 text-sm font-semibold transition duration-200 focus-visible:outline-none'; const size = props.block ? 'w-full sm:w-auto' : ''; const variants = { primary: 'bg-[var(--color-accent)] text-white hover:bg-[var(--color-accent-strong)]', secondary: 'border border-[var(--color-ink)] text-[var(--color-ink)] hover:bg-[var(--color-ink)] hover:text-white', text: 'px-0 text-[var(--color-accent)] underline decoration-1 underline-offset-4 hover:text-[var(--color-accent-strong)]', ghost: 'border border-[var(--color-line)] text-[var(--color-ink)] hover:border-[var(--color-ink)]' }; return [base, size, variants[props.variant]].filter(Boolean).join(' ') })
 </script>
-
-<template>
-  <component
-    :is="props.href ? 'a' : 'button'"
-    :href="props.href"
-    :target="props.target"
-    :class="rootClasses"
-  >
-    <span :class="[contentClasses, variants[props.variant]]">
-      <span>{{ props.label }}</span>
-      <svg
-        v-if="props.variant === 'primary'"
-        class="h-4 w-4 transition-transform group-hover:translate-x-0.5"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="1.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      >
-        <path d="M5 12h14" />
-        <path d="M13 6l6 6-6 6" />
-      </svg>
-    </span>
-  </component>
-</template>
+<template><component :is="href ? 'a' : 'button'" :href="href" :target="target" :rel="target === '_blank' ? 'noreferrer' : undefined" :class="classes"><span>{{ label }}</span><svg v-if="variant === 'primary'" class="h-4 w-4" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6" /></svg></component></template>

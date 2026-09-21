@@ -21,18 +21,17 @@ const IconComp = computed<Component | null>(() => {
 
 <template>
   <a
-    class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-white/70 transition hover:border-sky-400/60 hover:text-white"
+    class="inline-flex min-h-11 items-center gap-2 border border-[var(--color-line)] px-4 text-sm text-[var(--color-ink)] transition hover:border-[var(--color-ink)]"
     :href="props.social.href"
     target="_blank"
     rel="noreferrer"
   >
-    <span class="inline-flex h-6 w-6 items-center justify-center rounded-full text-xs font-semibold uppercase">
+    <span class="inline-flex h-5 w-5 items-center justify-center text-xs font-semibold uppercase">
       <component
         v-if="IconComp"
         :is="IconComp"
-        class="h-6 w-6 text-sky-200"
-        role="img"
-        :aria-label="`${props.social.label} icon`"
+        class="h-5 w-5"
+        aria-hidden="true"
       />
       <template v-else>
         {{ props.social.icon.slice(0, 2) }}
