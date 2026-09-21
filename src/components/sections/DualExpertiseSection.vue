@@ -1,0 +1,5 @@
+<script setup lang="ts">
+import SectionHeading from '@/components/ui/SectionHeading.vue'
+import { expertise } from '@/data/portfolio'
+</script>
+<template><section id="expertise" class="border-y border-[var(--color-line)] py-12 sm:py-16"><SectionHeading eyebrow="Expertise" title="Deux expertises, un même regard" description="Je relie les enjeux économiques, métier et techniques pour prendre de meilleures décisions numériques." /><div class="mt-10 grid gap-px border border-[var(--color-line)] bg-[var(--color-line)] md:grid-cols-2"><article v-for="item in expertise" :key="item.id" class="bg-[var(--color-surface)] p-6 sm:p-8"><p class="font-[var(--font-mono)] text-xs uppercase tracking-[0.12em] text-[var(--color-accent)]">{{ item.eyebrow }}</p><h3 class="mt-5 font-[var(--font-display)] text-2xl font-semibold leading-tight">{{ item.title }}</h3><p class="mt-4 text-[var(--color-muted)]">{{ item.description }}</p><ul class="mt-6 space-y-2 text-sm"><li v-for="capability in item.capabilities" :key="capability" class="border-t border-[var(--color-line)] pt-2">{{ capability }}</li></ul></article></div></section></template>

@@ -28,7 +28,7 @@ describe('portfolio content', () => {
   })
 
   it('keeps secondary projects compact and links optional', () => {
-    expect(projects.map((project) => project.id)).toEqual(['mts', 'monkey-quest'])
+    expect(projects.map((project) => project.id)).toEqual(['bmarket', 'mts', 'monkey-quest'])
     expect(projects.every((project) => project.summary.length < 220)).toBe(true)
   })
 

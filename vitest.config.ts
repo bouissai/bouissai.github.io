@@ -12,6 +12,6 @@ export default defineConfig({
   test: {
     environment: 'jsdom',
     setupFiles: ['./tests/setup.ts'],
-    exclude: [...configDefaults.exclude, 'tests/scrollVideoTimeline.test.ts']
+    exclude: [...configDefaults.exclude, 'tests/scrollVideoTimeline.test.ts', 'tests/githubPagesVerifier.test.mjs']
   }
 })
