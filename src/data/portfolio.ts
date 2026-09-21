@@ -142,6 +142,7 @@ export const caseStudies: CaseStudy[] = [
 ]
 
 export const projects: Project[] = [
+  { id: 'bmarket', title: 'B-Market', summary: 'Plateforme e-commerce click & collect conçue pour une boucherie, avec parcours client et outils opérationnels.', description: 'Plateforme e-commerce click & collect conçue pour une boucherie, avec parcours client, gestion des commandes, authentification et back-office.', features: ['Commandes & compte client', 'Back-office et statistiques', 'CI/CD et déploiement VPS'], tags: ['Next.js', 'Prisma', 'PostgreSQL', 'Docker'], href: 'https://bmarket.fr', repo: 'https://github.com/bouissai/b-market', featured: true },
   { id: 'mts', title: 'MTS', summary: 'Application de gestion de courses et de bons de livraison construite en master MIAGE.', features: ['Gestion chauffeurs, clients et paiements', 'Bons de livraison', 'Export Excel'], tags: ['Spring Boot', 'Angular', 'PostgreSQL'], demo: 'https://www.youtube.com/watch?v=TurXDLKvCBU' },
   { id: 'monkey-quest', title: 'MonkeyQuest', summary: 'Application de défis urbains à Grenoble, pensée autour de la découverte et de l’interaction locale.', features: ['Carte interactive', 'Authentification & profils', 'Géolocalisation et visites'], tags: ['Spring Boot', 'Angular', 'Heroku'], demo: 'https://www.youtube.com/watch?v=t_VteTAYGzc' }
 ]

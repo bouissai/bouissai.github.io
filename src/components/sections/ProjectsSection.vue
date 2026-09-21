@@ -24,11 +24,11 @@ const orderedProjects = computed(() =>
     <div class="gap-12 lg:flex-row lg:items-center lg:justify-between">
       <SectionHeading
         eyebrow="Portfolio"
-        title="Une sélection de projets récents"
-        description="Des expériences pensées pour convertir, fidéliser et incarner une vision produit claire."
+        title="Des produits conçus jusqu’à leur mise en ligne"
+        description="B-Market est la preuve centrale : je relie besoin métier, architecture, coûts d’exploitation et livraison."
       />
       <p class="max-w-sm text-sm leading-relaxed text-white/60">
-        Chaque mission démarre par des ateliers d’alignement, se poursuit par des prototypes haute fidélité et se termine par un accompagnement serré des équipes dev.
+        B-Market est présenté en premier, puis MTS et MonkeyQuest complètent le parcours technique.
       </p>
     </div>
     <div class="mt-12 grid gap-8 items-start lg:grid-cols-2">
