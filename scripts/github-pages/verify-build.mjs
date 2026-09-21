@@ -6,6 +6,7 @@ const EXTERNAL = /^(?:[a-z][a-z\d+.-]*:|\/\/|#)/i
 
 export function expectedBase(repository = '') {
   const name = repository.split('/').filter(Boolean).at(-1) ?? ''
+  if (!name) return '/'
   return name.toLowerCase().endsWith('.github.io') ? '/' : `/${name}/`
 }
 

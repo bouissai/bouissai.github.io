@@ -2,16 +2,20 @@
 import ProjectCard from '@/components/ui/ProjectCard.vue'
 import SectionHeading from '@/components/ui/SectionHeading.vue'
 import { projects } from '@/data/portfolio'
+import { motion } from 'motion-v'
 </script>
 
 <template>
-  <section id="projets" class="py-4 sm:py-8">
-    <div class="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-      <SectionHeading eyebrow="Projets techniques" title="Continuer à construire, côté code" description="B-Market est la preuve centrale : je relie besoin métier, architecture, coûts d’exploitation et livraison." />
-      <p class="max-w-sm text-sm leading-relaxed text-[var(--color-muted)]">Une sélection courte de produits conçus pour apprendre, livrer et mesurer l’impact.</p>
-    </div>
-    <div class="mt-12 grid items-start gap-8 lg:grid-cols-2">
-      <ProjectCard v-for="project in projects" :key="project.id" :project="project" :featured="project.featured === true" />
+  <section id="projets" data-snap-section class="flex items-center bg-[var(--color-surface)] py-20 sm:py-24">
+    <div class="section-inner">
+      <motion.div :initial="{ opacity: 0, y: 20 }" :while-in-view="{ opacity: 1, y: 0 }" :viewport="{ once: true, amount: 0.35 }" :transition="{ duration: 0.5 }">
+        <SectionHeading eyebrow="Projets techniques" title="Je garde les mains dans le code." description="Une sélection courte de produits pensés pour être utiles, livrés et exploitables — pas seulement montrés." />
+      </motion.div>
+      <div class="mt-14 grid divide-y divide-[var(--color-line)] lg:grid-cols-3 lg:divide-x lg:divide-y-0">
+        <motion.div v-for="(project, index) in projects" :key="project.id" class="lg:px-8 lg:first:pl-0 lg:last:pr-0" :initial="{ opacity: 0, y: 24 }" :while-in-view="{ opacity: 1, y: 0 }" :viewport="{ once: true, amount: 0.25 }" :transition="{ duration: 0.48, delay: index * 0.07 }">
+          <ProjectCard :project="project" :featured="project.featured === true" />
+        </motion.div>
+      </div>
     </div>
   </section>
 </template>

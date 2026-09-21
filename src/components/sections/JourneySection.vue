@@ -1,4 +1,26 @@
 <script setup lang="ts">
 import { journey } from '@/data/portfolio'
+import { motion } from 'motion-v'
 </script>
-<template><section id="parcours" class="border-y border-[var(--color-line)] py-12 sm:py-16"><p class="font-[var(--font-mono)] text-xs uppercase tracking-[0.12em] text-[var(--color-accent)]">Parcours</p><h2 class="mt-3 font-[var(--font-display)] text-3xl font-semibold tracking-tight sm:text-4xl">De l’ingénierie aux achats IT.</h2><ol class="mt-10 border-l border-[var(--color-line)]"><li v-for="item in journey" :key="item.id" class="relative ml-6 border-b border-[var(--color-line)] py-6 first:pt-0 last:border-0"><span class="absolute -left-[1.65rem] top-7 h-2 w-2 rounded-full bg-[var(--color-accent)] first:top-1" /><div class="flex flex-wrap justify-between gap-2"><h3 class="font-[var(--font-display)] text-xl font-semibold">{{ item.role }}</h3><time class="font-[var(--font-mono)] text-xs text-[var(--color-muted)]">{{ item.period }}</time></div><p class="mt-1 text-sm font-medium">{{ item.organization }}</p><p class="mt-3 max-w-2xl text-sm text-[var(--color-muted)]">{{ item.summary }}</p><ul class="mt-3 flex flex-wrap gap-x-5 gap-y-1 text-xs text-[var(--color-muted)]"><li v-for="highlight in item.highlights" :key="highlight">{{ highlight }}</li></ul></li></ol></section></template>
+
+<template>
+  <section id="parcours" data-snap-section class="py-20 sm:py-24">
+    <div class="section-inner grid gap-14 lg:grid-cols-[0.65fr_1fr] lg:gap-24">
+      <motion.header class="lg:sticky lg:top-32 lg:self-start" :initial="{ opacity: 0, x: -20 }" :while-in-view="{ opacity: 1, x: 0 }" :viewport="{ once: true, amount: 0.3 }" :transition="{ duration: 0.5 }">
+        <p class="eyebrow">Parcours</p>
+        <h2 class="section-title mt-4">Du code à la décision.</h2>
+        <p class="body-copy mt-6 leading-7">Un parcours construit entre ingénierie logicielle, pilotage de projet et achats technologiques.</p>
+      </motion.header>
+      <ol>
+        <motion.li v-for="(item, index) in journey" :key="item.id" class="grid gap-3 border-t border-[var(--color-line)] py-7 first:pt-0 sm:grid-cols-[8.5rem_1fr]" :initial="{ opacity: 0, y: 18 }" :while-in-view="{ opacity: 1, y: 0 }" :viewport="{ once: true, amount: 0.3 }" :transition="{ duration: 0.42, delay: Math.min(index * 0.04, 0.16) }">
+          <time class="font-[var(--font-mono)] text-xs leading-5 text-[var(--color-muted)]">{{ item.period }}</time>
+          <div>
+            <p class="text-xs font-bold uppercase tracking-[0.12em] text-[var(--color-accent)]">{{ item.organization }}</p>
+            <h3 class="mt-2 font-[var(--font-display)] text-xl font-semibold leading-tight tracking-[-0.025em]">{{ item.role }}</h3>
+            <p class="body-copy mt-3 text-sm leading-6">{{ item.summary }}</p>
+          </div>
+        </motion.li>
+      </ol>
+    </div>
+  </section>
+</template>

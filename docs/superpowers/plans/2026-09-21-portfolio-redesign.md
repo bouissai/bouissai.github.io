@@ -219,7 +219,7 @@ export const heroContent = {
   eyebrow: 'Achats IT × Ingénierie logicielle',
   title: 'Je relie la décision d’achat à la réalité technique.',
   description: 'Acheteur IT issu du développement logiciel, je pilote des consultations technologiques et je continue à concevoir des produits numériques de bout en bout.',
-  photoUrl: '/photo-pro.crop.jpg',
+  photoUrl: '/photo-pro.png',
   photoAlt: 'Portrait professionnel d’Ilyass Bouissa',
   actions: [
     { id: 'work', label: 'Voir les réalisations', href: '#realisations', variant: 'primary' },
@@ -910,7 +910,7 @@ Run `pnpm preview --host 127.0.0.1` in a persistent terminal session and record 
 ```text
 /
 /docs/CV_Ilyass_achat.pdf
-/photo-pro.crop.jpg
+/photo-pro.png
 /logo/laposte.jpg
 /logo/capgemini.jpeg
 /logo/rakuten.webp

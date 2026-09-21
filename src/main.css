@@ -1,16 +1,151 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Space+Grotesk:wght@400;500;600&display=swap');
 @import "tailwindcss";
 
-:root { color-scheme: light; --color-canvas: #f4f1ea; --color-surface: #fffdf8; --color-ink: #17191c; --color-muted: #5d6470; --color-line: #d7d9dc; --color-accent: #1746d1; --color-accent-strong: #10359f; --font-display: 'Archivo', Arial, sans-serif; --font-body: 'Space Grotesk', Arial, sans-serif; --font-mono: 'SFMono-Regular', Consolas, monospace; }
-html { scroll-behavior: smooth; }
-body { margin: 0; min-width: 320px; background: var(--color-canvas); color: var(--color-ink); font-family: var(--font-body); font-size: 16px; line-height: 1.6; }
-section[class] { background: var(--color-surface) !important; border-color: var(--color-line) !important; color: var(--color-ink) !important; box-shadow: 0 12px 34px rgb(23 25 28 / 0.05) !important; }
-section[class] h1, section[class] h2, section[class] h3, section[class] dt, section[class] dd { color: var(--color-ink) !important; }
-section[class] p, section[class] li, section[class] span { color: var(--color-muted); }
-section[class] a { color: var(--color-accent); }
-section[class] article { background: var(--color-surface) !important; border-color: var(--color-line) !important; color: var(--color-ink) !important; }
-section[class] article h3, section[class] article p, section[class] article li, section[class] article span { color: var(--color-ink) !important; }
-section[class] a span { color: inherit !important; }
-button, a { -webkit-tap-highlight-color: transparent; }
-:focus-visible { outline: 3px solid var(--color-accent); outline-offset: 3px; }
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
+:root {
+  color-scheme: light;
+  --color-canvas: #f4efe6;
+  --color-canvas-deep: #e9dfd1;
+  --color-surface: #fffaf2;
+  --color-ink: #171612;
+  --color-muted: #5f594f;
+  --color-line: #cfc3b4;
+  --color-accent: #a53c24;
+  --color-accent-strong: #782917;
+  --color-accent-soft: #efd2c6;
+  --color-moss: #244f42;
+  --color-moss-soft: #cfddd5;
+  --font-display: 'Archivo', Arial, sans-serif;
+  --font-body: 'Space Grotesk', Arial, sans-serif;
+  --font-mono: 'SFMono-Regular', Consolas, monospace;
+  --header-height: 4.5rem;
+  --page-gutter: clamp(1.25rem, 4vw, 4.5rem);
+  --page-width: 82rem;
+  --motion-fast: 180ms;
+  --motion-standard: 320ms;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  background: var(--color-canvas);
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-height);
+  scroll-snap-type: y mandatory;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  overflow-x: hidden;
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  text-rendering: optimizeLegibility;
+}
+
+button, a {
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+img { display: block; max-width: 100%; }
+::selection { background: var(--color-accent-soft); color: var(--color-ink); }
+
+:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 4px;
+}
+
+.site-shell { isolation: isolate; }
+
+.section-inner, .header-inner, .footer-inner {
+  width: min(100%, var(--page-width));
+  margin-inline: auto;
+  padding-inline: var(--page-gutter);
+}
+
+[data-snap-section] {
+  position: relative;
+  min-height: calc(100dvh - var(--header-height));
+  scroll-margin-top: var(--header-height);
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+.skip-link {
+  position: fixed;
+  z-index: 100;
+  top: 0.75rem;
+  left: 0.75rem;
+  padding: 0.7rem 1rem;
+  transform: translateY(-160%);
+  background: var(--color-ink);
+  color: white;
+  font-weight: 700;
+  transition: transform var(--motion-fast) ease;
+}
+
+.skip-link:focus { transform: translateY(0); }
+
+.eyebrow {
+  color: var(--color-accent);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.display-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.05em;
+  line-height: 0.98;
+  text-wrap: balance;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.1rem, 5vw, 4.6rem);
+  font-weight: 600;
+  letter-spacing: -0.045em;
+  line-height: 1.02;
+  text-wrap: balance;
+}
+
+.body-copy { color: var(--color-muted); max-width: 42rem; }
+
+.text-link {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--color-ink);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: var(--color-accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.35rem;
+  transition: color var(--motion-fast) ease;
+}
+
+.text-link:hover { color: var(--color-accent-strong); }
+
+@media (max-width: 767px) {
+  :root { --header-height: 4rem; }
+  html { scroll-snap-type: y proximity; }
+  [data-snap-section] { min-height: auto; scroll-snap-stop: normal; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; scroll-snap-type: none; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

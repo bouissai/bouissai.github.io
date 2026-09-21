@@ -1,14 +1,16 @@
 <script setup lang="ts">
-import SocialLinkItem from '@/components/ui/SocialLinkItem.vue'
-import { navLinks, socials } from '@/data/portfolio'
+import { navLinks } from '@/data/portfolio'
 const currentYear = new Date().getFullYear()
 </script>
+
 <template>
-  <footer class="mt-8 border-t border-[var(--color-line)] pt-8 text-sm text-[var(--color-muted)]">
-    <div class="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
-      <div><p class="text-xs font-semibold uppercase tracking-[0.24em] text-[var(--color-accent)]">Ilyass Bouissa</p><p class="mt-2 max-w-sm leading-relaxed">Achats IT × Ingénierie logicielle</p></div>
-      <nav class="flex flex-wrap gap-x-5 gap-y-2 text-xs font-semibold uppercase tracking-[0.16em]"><a v-for="link in navLinks" :key="link.id" class="transition hover:text-[var(--color-ink)]" :href="`#${link.id}`">{{ link.label }}</a></nav>
+  <footer class="bg-[var(--color-ink)] py-8 text-sm text-[#c9c3b9]">
+    <div class="footer-inner flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+      <p><span class="font-semibold text-white">Ilyass Bouissa</span> — Achats IT × Ingénierie logicielle</p>
+      <nav class="flex flex-wrap gap-x-5 gap-y-2 text-xs" aria-label="Navigation de pied de page">
+        <a v-for="link in navLinks" :key="link.id" :href="`#${link.id}`" class="min-h-6 transition hover:text-white">{{ link.label }}</a>
+      </nav>
+      <p class="text-xs">© {{ currentYear }}</p>
     </div>
-    <div class="mt-8 flex flex-wrap items-center justify-between gap-4"><div class="flex flex-wrap gap-3"><SocialLinkItem v-for="social in socials" :key="social.id" :social="social" /></div><p class="text-xs">© {{ currentYear }} Tous droits réservés.</p></div>
   </footer>
 </template>
