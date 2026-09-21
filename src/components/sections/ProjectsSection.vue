@@ -20,7 +20,7 @@ const orderedProjects = computed(() =>
 </script>
 
 <template>
-  <section id="projects" class="rounded-[2.5rem] border border-white/10 bg-slate-900/60 px-6 py-16 md:px-12 lg:py-20">
+  <section id="projects" class="rounded-[2.5rem] border border-white/10 bg-slate-950/50 px-6 py-16 backdrop-blur-[2px] md:px-12 lg:py-20">
     <div class="gap-12 lg:flex-row lg:items-center lg:justify-between">
       <SectionHeading
         eyebrow="Portfolio"

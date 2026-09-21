@@ -4,7 +4,7 @@ import { aboutContent } from '@/data/portfolio'
 </script>
 
 <template>
-  <section id="about" class="relative overflow-hidden rounded-[2.5rem] border border-white/5 bg-white/5 px-6 py-16 md:px-12 lg:py-20">
+  <section id="about" class="relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-slate-950/45 px-6 py-16 backdrop-blur-[2px] md:px-12 lg:py-20">
     <div class="absolute inset-0 -z-10 bg-gradient-to-br from-white/5 via-transparent to-transparent" />
     <div>
       <SectionHeading

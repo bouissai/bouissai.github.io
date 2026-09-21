@@ -13,7 +13,7 @@ const phoneHref = computed(() =>
 
 <template>
   <section id="contact"
-    class="relative overflow-hidden rounded-[2.5rem] border border-sky-400/20 bg-gradient-to-br from-sky-500/20 via-slate-900 to-purple-500/10 px-6 py-16 shadow-lg shadow-sky-900/30 md:px-12 lg:py-20">
+    class="relative overflow-hidden rounded-[2.5rem] border border-sky-400/20 bg-gradient-to-br from-sky-500/20 via-slate-950/60 to-purple-500/10 px-6 py-16 shadow-lg shadow-sky-900/30 backdrop-blur-[2px] md:px-12 lg:py-20">
     <div
       class="absolute inset-y-0 right-0 -z-10 h-full w-1/2 bg-[radial-gradient(circle_at_center,_rgba(255,255,255,0.3),_transparent_65%)] opacity-40 blur-3xl" />
     <div class="gap-16 lg:grid-cols-[0.7fr_0.3fr] lg:items-center">

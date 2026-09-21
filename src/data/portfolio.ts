@@ -54,7 +54,7 @@ export const heroContent = {
   photoUrl:
     '/photo-pro.crop.jpg',
   photoAlt: 'Portrait professionnel d’Ilyass Bouissa',
-  photoCaption: '“Comprendre la technique pour mieux acheter”',
+  photoCaption: '“Exploiter la technique pour améliorer la performance achats”',
   ctaPrimary: {
     label: 'Voir mes projets',
     href: '#projects'

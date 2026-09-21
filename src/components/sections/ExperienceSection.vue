@@ -5,7 +5,7 @@ import { experiences } from '@/data/portfolio'
 </script>
 
 <template>
-  <section id="experience" class="rounded-[2.5rem] border border-white/10 bg-white/5 px-6 py-16 md:px-12 lg:py-20">
+  <section id="experience" class="rounded-[2.5rem] border border-white/10 bg-slate-950/45 px-6 py-16 backdrop-blur-[2px] md:px-12 lg:py-20">
     <div class="grid gap-12">
       <SectionHeading
         eyebrow="Expérience"
