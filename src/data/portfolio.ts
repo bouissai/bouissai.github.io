@@ -39,6 +39,7 @@ export type CaseStudy = {
 export type Project = {
   id: string
   title: string
+  type: 'personal' | 'academic'
   summary: string
   features: string[]
   tags: string[]
@@ -47,6 +48,10 @@ export type Project = {
   description?: string
   href?: string
   projectImg?: string
+  projectImageAlt?: string
+  projectImageWidth?: number
+  projectImageHeight?: number
+  projectImagePosition?: string
   videoPath?: string
   featured?: boolean
 }
@@ -105,12 +110,12 @@ export const heroContent = {
 
 export const expertise: Expertise[] = [
   {
-    id: 'procurement', eyebrow: '01 — Achats IT', title: 'Décider avec des critères métier, économiques et techniques.',
+    id: 'procurement', eyebrow: '01 · Achats IT', title: 'Décider avec des critères métier, économiques et techniques.',
     description: 'Je structure les consultations technologiques depuis le besoin jusqu’à la contractualisation, en gardant une lecture concrète des solutions proposées.',
     capabilities: ['Appels d’offres & sourcing', 'Analyse technico-économique & TCO', 'Négociation & contractualisation', 'Veille marché, IoT & logiciels']
   },
   {
-    id: 'engineering', eyebrow: '02 — Ingénierie logicielle', title: 'Construire des produits pensés pour être réellement exploités.',
+    id: 'engineering', eyebrow: '02 · Ingénierie logicielle', title: 'Construire des produits pensés pour être réellement exploités.',
     description: 'Je continue à développer des applications complètes : expérience métier, données, sécurité, déploiement et maîtrise des coûts d’exploitation.',
     capabilities: ['Conception full stack', 'Architecture & données', 'Cloud, Docker & CI/CD', 'Produit, exploitation & coûts']
   }
@@ -118,7 +123,7 @@ export const expertise: Expertise[] = [
 
 export const caseStudies: CaseStudy[] = [
   {
-    id: 'softpos-iot', pillar: 'procurement', eyebrow: 'Achats IT — La Poste Groupe',
+    id: 'softpos-iot', pillar: 'procurement', eyebrow: 'Achats IT · La Poste Groupe',
     title: 'Cadrer des achats technologiques à forts enjeux opérationnels.',
     summary: 'Consultations autour du paiement mobile, de l’IoT et de solutions logicielles pour les activités Industrie, Technologie & Logistique.',
     challenge: 'Comparer des offres complexes sans perdre de vue la sécurité, l’usage métier, le coût global et la capacité de déploiement.',
@@ -127,7 +132,7 @@ export const caseStudies: CaseStudy[] = [
     tags: ['Appels d’offres', 'TCO', 'IoT', 'Sécurité', 'Négociation'], links: []
   },
   {
-    id: 'b-market', pillar: 'engineering', eyebrow: 'Produit full stack — Projet personnel',
+    id: 'b-market', pillar: 'engineering', eyebrow: 'Produit full stack · Projet personnel',
     title: 'B-Market : faire du click & collect un produit exploitable.',
     summary: 'Une plateforme e-commerce conçue pour une boucherie, avec parcours client, gestion des commandes et outils opérationnels.',
     challenge: 'Réunir commande en ligne, gestion métier et déploiement fiable dans un produit simple à administrer.',
@@ -142,17 +147,18 @@ export const caseStudies: CaseStudy[] = [
 ]
 
 export const projects: Project[] = [
-  { id: 'bmarket', title: 'B-Market', summary: 'Plateforme e-commerce click & collect conçue pour une boucherie, avec parcours client et outils opérationnels.', description: 'Plateforme e-commerce click & collect conçue pour une boucherie, avec parcours client, gestion des commandes, authentification et back-office.', features: ['Commandes & compte client', 'Back-office et statistiques', 'CI/CD et déploiement VPS'], tags: ['Next.js', 'Prisma', 'PostgreSQL', 'Docker'], href: 'https://bmarket.fr', repo: 'https://github.com/bouissai/b-market', featured: true },
-  { id: 'mts', title: 'MTS', summary: 'Application de gestion de courses et de bons de livraison construite en master MIAGE.', features: ['Gestion chauffeurs, clients et paiements', 'Bons de livraison', 'Export Excel'], tags: ['Spring Boot', 'Angular', 'PostgreSQL'], demo: 'https://www.youtube.com/watch?v=TurXDLKvCBU' },
-  { id: 'monkey-quest', title: 'MonkeyQuest', summary: 'Application de défis urbains à Grenoble, pensée autour de la découverte et de l’interaction locale.', features: ['Carte interactive', 'Authentification & profils', 'Géolocalisation et visites'], tags: ['Spring Boot', 'Angular', 'Heroku'], demo: 'https://www.youtube.com/watch?v=t_VteTAYGzc' }
+  { id: 'bmarket', type: 'personal', title: 'B-Market', summary: 'Plateforme e-commerce click & collect conçue pour une boucherie, avec parcours client et outils opérationnels.', description: 'Plateforme e-commerce click & collect conçue pour une boucherie, avec parcours client, gestion des commandes, authentification et back-office.', features: ['Commandes & compte client', 'Back-office et statistiques', 'CI/CD et déploiement VPS'], tags: ['Next.js', 'Prisma', 'PostgreSQL', 'Docker'], href: 'https://bmarket.fr', repo: 'https://github.com/bouissai/b-market', demo: 'https://youtu.be/Gq5UYJvB9bs', featured: true },
+  { id: 'mts', type: 'academic', title: 'MTS', summary: 'Application conçue pour une entreprise de transport. Elle suit la rémunération des chauffeurs, archive les bons de livraison et gère les sociétés clientes. Elle facilite la recherche d’un bon et de ses détails pour traiter les incidents.', features: ['Gestion chauffeurs, clients et paiements', 'Recherche et archivage des bons de livraison', 'Export Excel'], tags: ['Spring Boot', 'Angular', 'PostgreSQL'], demo: 'https://www.youtube.com/watch?v=TurXDLKvCBU' },
+  { id: 'deal-hearts', type: 'personal', title: 'Deal Hearts', summary: 'Jeu narratif mobile qui transforme les fondamentaux de la négociation en choix, conséquences et débriefs.', features: ['Visual Novel pédagogique, jouable hors ligne', 'Moteur de choix déterministe et contenu versionné', 'Sauvegarde locale et progression par compétences'], tags: ['React Native', 'Expo', 'TypeScript', 'SQLite', 'Zod'], demo: 'https://youtu.be/zwlI8cqxfh8' },
+  { id: 'monkey-quest', type: 'academic', title: 'MonkeyQuest', summary: 'Application de défis urbains à Grenoble, pensée autour de la découverte et de l’interaction locale.', features: ['Carte interactive', 'Authentification & profils', 'Géolocalisation et visites'], tags: ['Spring Boot', 'Angular', 'Heroku'], demo: 'https://www.youtube.com/watch?v=t_VteTAYGzc' }
 ]
 
 export const journey: JourneyItem[] = [
-  { id: 'laposte', kind: 'experience', role: 'Acheteur IT/OT — alternance', organization: 'La Poste Groupe · ITL', period: 'Sept. 2025 — aujourd’hui', summary: 'Achats de logiciels, prestations IT et solutions IoT pour les activités Industrie, Technologie & Logistique.', highlights: ['Pilotage de consultations et d’analyses technico-économiques', 'Sourcing, négociation et contractualisation'], logo: '/logo/laposte.jpg' },
-  { id: 'capgemini', kind: 'experience', role: 'Ingénieur logiciel & chef de projet — alternance', organization: 'Capgemini Engineering', period: 'Sept. 2022 — fév. 2025', summary: 'Développement et pilotage de produits internes autour de la data, du cloud et de l’industrialisation logicielle.', highlights: ['Spring Boot, Angular, Python et PostgreSQL', 'Déploiements Docker et Kubernetes'], logo: '/logo/capgemini.jpeg' },
-  { id: 'rakuten', kind: 'experience', role: 'Software Engineer — stage', organization: 'Rakuten Advertising', period: 'Mai 2022 — août 2022', summary: 'Développement d’un pipeline publicitaire interne et déploiement sur GCP.', highlights: ['Service Java/Spring et endpoint REST', 'Docker, Kubernetes et GCP'], logo: '/logo/rakuten.webp' },
-  { id: 'gem', kind: 'education', role: 'Mastère Spécialisé Achats', organization: 'Grenoble École de Management', period: 'Sept. 2025 — sept. 2026', summary: 'Processus achats, contractualisation, négociation, TCO et gestion des risques fournisseurs.', highlights: ['Achats IT', 'Conformité et risques'], logo: '/logo/gem.png' },
-  { id: 'uga', kind: 'education', role: 'Master MIAGE', organization: 'Université Grenoble Alpes', period: 'Sept. 2022 — sept. 2024', summary: 'Architecture logicielle, gestion de projet, RGPD et cybersécurité.', highlights: ['Systèmes d’information', 'Développement logiciel'], logo: '/logo/uga.png' }
+  { id: 'laposte', kind: 'experience', role: 'Acheteur IT/OT · alternance', organization: 'La Poste Groupe · ITL', period: 'Sept. 2025 à aujourd’hui', summary: 'Achats de logiciels, prestations IT et solutions IoT pour les activités Industrie, Technologie & Logistique.', highlights: ['Pilotage de consultations et d’analyses technico-économiques', 'Sourcing, négociation et contractualisation'], logo: '/logo/laposte.jpg' },
+  { id: 'capgemini', kind: 'experience', role: 'Ingénieur logiciel et chef de projet · alternance', organization: 'Capgemini Engineering', period: 'Sept. 2022 à fév. 2025', summary: 'Développement et pilotage de produits internes autour de la data, du cloud et de l’industrialisation logicielle.', highlights: ['Spring Boot, Angular, Python et PostgreSQL', 'Déploiements Docker et Kubernetes'], logo: '/logo/capgemini.jpeg' },
+  { id: 'rakuten', kind: 'experience', role: 'Software Engineer · stage', organization: 'Rakuten Advertising', period: 'Mai 2022 à août 2022', summary: 'Développement d’un pipeline publicitaire interne et déploiement sur GCP.', highlights: ['Service Java/Spring et endpoint REST', 'Docker, Kubernetes et GCP'], logo: '/logo/rakuten.webp' },
+  { id: 'gem', kind: 'education', role: 'Mastère Spécialisé Achats', organization: 'Grenoble École de Management', period: 'Sept. 2025 à sept. 2026', summary: 'Processus achats, contractualisation, négociation, TCO et gestion des risques fournisseurs.', highlights: ['Achats IT', 'Conformité et risques'], logo: '/logo/gem.png' },
+  { id: 'uga', kind: 'education', role: 'Master MIAGE', organization: 'Université Grenoble Alpes', period: 'Sept. 2022 à sept. 2024', summary: 'Architecture logicielle, gestion de projet, RGPD et cybersécurité.', highlights: ['Systèmes d’information', 'Développement logiciel'], logo: '/logo/uga.png' }
 ]
 
 export const aboutContent = {

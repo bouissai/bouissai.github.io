@@ -3,13 +3,22 @@ import type { Project } from '@/data/portfolio'
 import { ArrowUpRight, Play } from 'lucide-vue-next'
 
 defineProps<{ project: Project; featured?: boolean }>()
+
+const embedUrl = (url?: string) => {
+  if (!url) return ''
+  const videoId = url.includes('youtu.be/') ? url.split('youtu.be/')[1]?.split(/[?&]/)[0] : new URL(url).searchParams.get('v')
+  return videoId ? `https://www.youtube-nocookie.com/embed/${videoId}` : url
+}
 </script>
 
 <template>
-  <article class="group flex h-full flex-col py-7 first:pt-0 lg:py-0">
+  <article class="project-card group flex h-full flex-col rounded-[1.5rem] border border-[var(--color-line)] bg-[var(--color-surface)] p-5 shadow-[0_10px_0_rgba(23,22,18,0.04)] transition duration-300 hover:-translate-y-1 hover:border-[var(--color-accent)] hover:shadow-[0_18px_30px_rgba(23,22,18,0.10)] sm:p-6">
     <div class="flex items-center justify-between gap-4">
       <p class="eyebrow">{{ featured ? 'Projet phare' : 'Projet technique' }}</p>
       <span class="font-[var(--font-mono)] text-xs text-[var(--color-muted)]">{{ project.tags[0] }}</span>
+    </div>
+    <div v-if="project.demo" class="mt-5 aspect-[16/10] overflow-hidden rounded-[1rem] bg-[var(--color-canvas-deep)]">
+      <iframe :src="embedUrl(project.demo)" :title="`Démonstration vidéo de ${project.title}`" class="h-full w-full" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     </div>
     <h3 class="mt-5 font-[var(--font-display)] text-3xl font-semibold tracking-[-0.04em] transition-colors group-hover:text-[var(--color-accent-strong)]">{{ project.title }}</h3>
     <p class="body-copy mt-4 leading-7">{{ project.summary }}</p>
