@@ -1,31 +1,36 @@
 <script setup lang="ts">
 import { AnimatePresence, motion } from 'motion-v'
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
+import { localizedPortfolio } from '@/i18n'
+import type { UiCopy } from '@/i18n'
 
 type CompanionMoment = {
   image: string
-  label: string
+  labelKey: keyof UiCopy['companion']
   width: number
   height: number
 }
 
 const moments: Record<string, CompanionMoment> = {
-  home: { image: '/avatar/s2_hi.png', label: 'Enchanté !', width: 1122, height: 1402 },
-  expertise: { image: '/avatar/s4_professione.png', label: 'Mon double regard', width: 1024, height: 1536 },
-  realisations: { image: '/avatar/s3_Projet.png', label: 'Mes réalisations', width: 1024, height: 1535 },
-  projets: { image: '/avatar/s5_lire.png', label: 'Côté code', width: 1024, height: 1536 },
-  parcours: { image: '/avatar/s1_neutre.png', label: 'Mon parcours', width: 1122, height: 1402 },
-  contact: { image: '/avatar/final_rendez-vous.png', label: 'On se rencontre ?', width: 1024, height: 1536 },
+  home: { image: '/avatar/s2_hi.png', labelKey: 'home', width: 1122, height: 1402 },
+  expertise: { image: '/avatar/s4_professione.png', labelKey: 'expertise', width: 1024, height: 1536 },
+  realisations: { image: '/avatar/s3_Projet.png', labelKey: 'realisations', width: 1024, height: 1535 },
+  projets: { image: '/avatar/s5_lire.png', labelKey: 'projets', width: 1024, height: 1536 },
+  parcours: { image: '/avatar/s1_neutre.png', labelKey: 'parcours', width: 1122, height: 1402 },
+  contact: { image: '/avatar/final_rendez-vous.png', labelKey: 'contact', width: 1024, height: 1536 },
 }
 
 const activeId = ref('initial')
 const initialMoment: CompanionMoment = {
   image: '/avatar/s1_neutre.png',
-  label: 'Bienvenue',
+  labelKey: 'initial',
   width: 1122,
   height: 1402,
 }
-const activeMoment = computed(() => moments[activeId.value] ?? initialMoment)
+const activeMoment = computed(() => {
+  const moment = moments[activeId.value] ?? initialMoment
+  return { ...moment, label: localizedPortfolio.value.ui.companion[moment.labelKey] }
+})
 let observer: IntersectionObserver | undefined
 const visibility = new Map<string, number>()
 

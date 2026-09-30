@@ -1,7 +1,9 @@
 <script setup lang="ts">
-import { caseStudies } from '@/data/portfolio'
+import { localizedPortfolio } from '@/i18n'
 import { ArrowUpRight, Check } from 'lucide-vue-next'
 import { motion } from 'motion-v'
+
+const content = localizedPortfolio
 </script>
 
 <template>
@@ -9,14 +11,14 @@ import { motion } from 'motion-v'
     <div class="section-inner">
       <motion.header class="grid gap-5 md:grid-cols-[1fr_0.7fr] md:items-end" :initial="{ opacity: 0, y: 20 }" :while-in-view="{ opacity: 1, y: 0 }" :viewport="{ once: true, amount: 0.35 }" :transition="{ duration: 0.5 }">
         <div>
-          <p class="eyebrow">Réalisations</p>
-          <h2 class="section-title mt-4">Des preuves, pas des promesses.</h2>
+          <p class="eyebrow">{{ content.ui.caseStudies.eyebrow }}</p>
+          <h2 class="section-title mt-4">{{ content.ui.caseStudies.title }}</h2>
         </div>
-        <p class="body-copy text-base leading-7 md:justify-self-end">Des achats technologiques au produit livré, chaque cas relie décision, architecture et exploitation.</p>
+        <p class="body-copy text-base leading-7 md:justify-self-end">{{ content.ui.caseStudies.description }}</p>
       </motion.header>
 
       <div class="mt-14 grid gap-12 lg:grid-cols-2 lg:gap-16">
-        <motion.article v-for="(study, index) in caseStudies" :key="study.id" class="flex flex-col" :initial="{ opacity: 0, y: 24 }" :while-in-view="{ opacity: 1, y: 0 }" :viewport="{ once: true, amount: 0.25 }" :transition="{ duration: 0.5, delay: index * 0.08 }">
+        <motion.article v-for="(study, index) in content.caseStudies" :key="study.id" class="flex flex-col" :initial="{ opacity: 0, y: 24 }" :while-in-view="{ opacity: 1, y: 0 }" :viewport="{ once: true, amount: 0.25 }" :transition="{ duration: 0.5, delay: index * 0.08 }">
           <div class="flex items-start justify-between gap-5 border-b border-[var(--color-line)] pb-5">
             <span class="font-[var(--font-display)] text-5xl font-semibold text-[var(--color-accent-soft)]">0{{ index + 1 }}</span>
             <span class="max-w-xs text-right text-xs font-semibold uppercase tracking-[0.12em] text-[var(--color-muted)]">{{ study.eyebrow }}</span>

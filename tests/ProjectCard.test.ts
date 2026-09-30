@@ -10,7 +10,7 @@ describe('project cards', () => {
     const iframe = wrapper.get('iframe')
 
     expect(iframe.attributes('src')).toContain('Gq5UYJvB9bs')
-    expect(iframe.attributes('title')).toBe('Démonstration vidéo de B-Market')
+    expect(iframe.attributes('title')).toBe('Démonstration vidéo : B-Market')
   })
 
   it('embeds the Deal Hearts demo without an image', () => {
@@ -29,8 +29,8 @@ describe('project cards', () => {
     const mtsWrapper = mount(ProjectCard, { props: { project: mts } })
 
     expect(dealWrapper.get('iframe').attributes('src')).toContain('zwlI8cqxfh8')
-    expect(dealWrapper.get('iframe').attributes('title')).toBe('Démonstration vidéo de Deal Hearts')
+    expect(dealWrapper.get('iframe').attributes('title')).toBe('Démonstration vidéo : Deal Hearts')
     expect(mtsWrapper.get('iframe').attributes('src')).toContain('TurXDLKvCBU')
-    expect(mtsWrapper.get('iframe').attributes('title')).toBe('Démonstration vidéo de MTS')
+    expect(mtsWrapper.get('iframe').attributes('title')).toBe('Démonstration vidéo : MTS')
   })
 })

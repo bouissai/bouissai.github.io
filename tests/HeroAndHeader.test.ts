@@ -2,6 +2,7 @@ import { mount } from '@vue/test-utils'
 import { describe, expect, it } from 'vitest'
 import HeroSection from '@/components/sections/HeroSection.vue'
 import SiteHeader from '@/components/sections/SiteHeader.vue'
+import App from '@/App.vue'
 
 describe('hero and header', () => {
   it('renders equal procurement and engineering markers with working CV path', () => {
@@ -26,5 +27,9 @@ describe('hero and header', () => {
 
   it('contains no background video', () => {
     expect(mount(HeroSection).find('video').exists()).toBe(false)
+  })
+
+  it('marks the main page content for the language transition', () => {
+    expect(mount(App).get('main').attributes('data-language-transition')).toBe('true')
   })
 })
